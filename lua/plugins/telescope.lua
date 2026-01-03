@@ -10,4 +10,3 @@ return {
     vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
   end,
 }
-

@@ -33,4 +33,3 @@ vim.keymap.set("v", ">", ">gv", { silent = true })
 
 -- Load plugins (imports lua/plugins/init.lua)
 require("lazy").setup("plugins")
-
