@@ -4,16 +4,15 @@ return {
   config = function()
     require("nvim-tree").setup({
       view = { width = 35 },
-      filters = { dotfiles = false },
-      renderer = {
-        icons = {
-          show = {
-            file = false,
-            folder = false,
-            folder_arrow = true,
-            git = true,
-          },
-        },
+      filters = {
+        dotfiles = false,
+        git_ignored = false,
+      },
+      sync_root_with_cwd = true,          -- sync tree root with cwd
+      respect_buf_cwd = true,             -- change tree cwd on BufEnter
+      update_focused_file = {
+        enable = true,                    -- highlight current file
+        update_root = true,               -- change root to file's parent
       },
     })
     vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })

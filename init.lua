@@ -30,6 +30,7 @@ vim.keymap.set("n", "<leader>t", ":split | term<CR>", { silent = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 vim.keymap.set("v", "<", "<gv", { silent = true })
 vim.keymap.set("v", ">", ">gv", { silent = true })
+vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { silent = true })
 
 -- Load plugins (imports lua/plugins/init.lua)
 require("lazy").setup("plugins")
