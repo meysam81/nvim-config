@@ -23,6 +23,46 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
+vim.opt.autoread = true
+vim.opt.mousescroll = "ver:2,hor:2"  -- 2 lines per scroll
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false  -- start with folds open
+vim.opt.foldlevel = 99      -- open all folds by default
+
+-- Auto-reload files changed outside of Neovim
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  callback = function()
+    vim.cmd("checktime")
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "go" },
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.expandtab = false  -- Go uses tabs
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python" },
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.expandtab = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua", "javascript", "typescript", "vue", "html", "css", "json", "yaml" },
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
 
 -- Keymaps
 vim.keymap.set("n", "<leader>q", ":cclose<CR>", { silent = true })

@@ -48,13 +48,20 @@ return {
       root_markers = { "tailwind.config.js", "tailwind.config.ts", "postcss.config.js", "package.json", ".git" },
     })
 
+    -- Astro
+    vim.lsp.config("astro", {
+      cmd = { "astro-ls", "--stdio" },
+      filetypes = { "astro" },
+      root_markers = { "astro.config.mjs", "astro.config.ts", "package.json", ".git" },
+    })
 
     -- Enable servers
+    vim.lsp.enable("astro")
     vim.lsp.enable("gopls")
-    vim.lsp.enable("vue_ls")
-    vim.lsp.enable("ts_ls")
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("tailwindcss")
+    vim.lsp.enable("ts_ls")
+    vim.lsp.enable("vue_ls")
 
     -- Keybindings on LSP attach
     vim.api.nvim_create_autocmd("LspAttach", {

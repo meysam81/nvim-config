@@ -17,5 +17,8 @@ return {
     })
     vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
     vim.keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>", { silent = true })
+      -- Slower scroll in tree (and globally)
+    vim.keymap.set("n", "<ScrollWheelUp>", "2<C-y>", { silent = true })
+    vim.keymap.set("n", "<ScrollWheelDown>", "2<C-e>", { silent = true })
   end,
 }

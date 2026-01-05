@@ -1,6 +1,7 @@
 return {
   require("plugins.bufferline"),
   require("plugins.cmp"),
+  require("plugins.comment"),
   require("plugins.copilot"),
   require("plugins.fugitive"),
   require("plugins.gitsigns"),

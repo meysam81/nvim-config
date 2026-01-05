@@ -115,7 +115,7 @@ install_language_servers() {
   # Node-based servers
   if command -v bun &> /dev/null; then
     log_info "Installing TypeScript, Vue, and Tailwind language servers..."
-    bun install -g typescript typescript-language-server @vue/language-server @tailwindcss/language-server
+    bun install -g typescript typescript-language-server @vue/language-server @tailwindcss/language-server @astrojs/language-server
   fi
 }
 
