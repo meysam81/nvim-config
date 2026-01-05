@@ -39,7 +39,8 @@ install_system_packages() {
       brew install neovim ripgrep fd lua-language-server
       ;;
     fedora)
-      sudo dnf install -y neovim ripgrep fd-find lua-language-server
+      sudo dnf install -y neovim ripgrep fd-find
+      brew install lua-language-server
       ;;
     ubuntu)
       sudo apt update
