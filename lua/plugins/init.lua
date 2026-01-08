@@ -8,5 +8,6 @@ return {
   require("plugins.gitsigns"),
   require("plugins.lsp"),
   require("plugins.nvim-tree"),
+  require("plugins.sort"),
   require("plugins.telescope"),
 }
