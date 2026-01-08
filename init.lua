@@ -24,16 +24,18 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoread = true
-vim.opt.mousescroll = "ver:2,hor:2"  -- 2 lines per scroll
+vim.opt.mousescroll = "ver:2,hor:2" -- 2 lines per scroll
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false  -- start with folds open
-vim.opt.foldlevel = 99      -- open all folds by default
+vim.opt.foldenable = false -- start with folds open
+vim.opt.foldlevel = 99     -- open all folds by default
 
 -- Auto-reload files changed outside of Neovim
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   callback = function()
-    vim.cmd("checktime")
+    if vim.bo.buftype == "" then -- only for normal file buffers
+      vim.cmd("checktime")
+    end
   end,
 })
 
@@ -42,7 +44,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.opt_local.shiftwidth = 4
     vim.opt_local.tabstop = 4
-    vim.opt_local.expandtab = false  -- Go uses tabs
+    vim.opt_local.expandtab = false -- Go uses tabs
   end,
 })
 
@@ -71,6 +73,9 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 vim.keymap.set("v", "<", "<gv", { silent = true })
 vim.keymap.set("v", ">", ">gv", { silent = true })
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { silent = true })
+vim.keymap.set("n", "<leader>qq", ":qa<CR>", { silent = true })  -- quit all
+vim.keymap.set("n", "<leader>qw", ":wqa<CR>", { silent = true }) -- save all and quit
+vim.keymap.set("n", "<leader>qf", ":qa!<CR>", { silent = true }) -- force quit (discard changes)
 
 -- Load plugins (imports lua/plugins/init.lua)
 require("lazy").setup("plugins")
