@@ -59,6 +59,7 @@ return {
     vim.lsp.enable("astro")
     vim.lsp.enable("gopls")
     vim.lsp.enable("lua_ls")
+    vim.lsp.enable("pyright")
     vim.lsp.enable("tailwindcss")
     vim.lsp.enable("ts_ls")
     vim.lsp.enable("vue_ls")
