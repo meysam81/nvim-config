@@ -3,6 +3,7 @@ return {
   require("plugins.cmp"),
   require("plugins.comment"),
   require("plugins.copilot"),
+  require("plugins.dap"),
   require("plugins.fugitive"),
   require("plugins.gitsigns"),
   require("plugins.lsp"),
