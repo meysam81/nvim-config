@@ -29,6 +29,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false -- start with folds open
 vim.opt.foldlevel = 99     -- open all folds by default
+vim.opt.colorcolumn = "80"
 
 -- Auto-reload files changed outside of Neovim
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
